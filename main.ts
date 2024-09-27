@@ -78,7 +78,7 @@ function move (sprite: Sprite, direction: string) {
     } else if (direction == "down") {
         sprite.y += 1
     } else if (direction == "left") {
-    	
+        sprite.x += -1
     } else if (direction == "right") {
         sprite.x += 1
     }
@@ -172,7 +172,7 @@ ghost = sprites.create(img`
     `, SpriteKind.Enemy)
 ghostDirection = "left"
 tiles.placeOnTile(ghost, tiles.getTileLocation(8, 6))
-game.setGameOverPlayable(false, music.melodyPlayable(music.smallCrash), true)
+game.setGameOverPlayable(false, music.melodyPlayable(music.smallCrash), false)
 game.onUpdateInterval(10, function () {
     setPlayerMovementDirection(getAllowedDirections(pacman))
     move(pacman, direction)
